@@ -1,0 +1,13 @@
+.core-champion img {
+    width: 32px;
+}
+
+.description-champion img {
+    width: 44px;
+}
+
+@media only screen and (max-width:768px) {
+    .list-item {
+        grid-template-columns: 1fr;
+    }
+}
