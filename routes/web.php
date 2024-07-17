@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['locale'])->namespace('Frontend')->group(function () {
-    Route::get('/', 'HomepageController@index')->name('homepage');
-    Route::get('/tier-list', 'HomepageController@tierList')->name('tierList');
+    // Route::get('/', 'HomepageController@index')->name('homepage');
+    Route::get('/', 'HomepageController@tierList')->name('tierList');
+    //Route::get('/tier-list', 'HomepageController@tierList')->name('tierList');
     Route::post('ajax-tierlist', 'HomepageController@ajaxTierList')->name('ajaxTierList');
     // route watch
     Route::get('/guides', 'HomepageController@guides')->name('guides');

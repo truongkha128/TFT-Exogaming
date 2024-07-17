@@ -11,7 +11,7 @@
                     <!-- <li class="nav-item">
                         <a class="nav-link {{$pageGroup == 3 ? 'active' : ''}}" href="#">Study Hall</a>
                     </li> -->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                     <div class="dropdown">
                             <a class="nav-link dropdown-toggle {{$pageGroup ==  3 ? 'active' : ''}}" href="#"data-bs-toggle="dropdown" aria-expanded="false"><img class="icon-menu" src="{{ asset('assets/front/images/tv.svg')}}">Watch</a>
                             <ul class="dropdown-menu">
@@ -29,13 +29,10 @@
                               <li><a class="dropdown-item" href="{{ route('returnPlayer') }}">Returning Players</a></li>
                             </ul>
                           </div>
-                    </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link">Practice</a>
-                    </li> --}}
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link"><img class="icon-menu" src="{{ asset('assets/front/images/graduation.svg')}}">Discord</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
