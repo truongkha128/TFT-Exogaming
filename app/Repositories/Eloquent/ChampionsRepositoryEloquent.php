@@ -37,7 +37,7 @@ class ChampionsRepositoryEloquent extends BaseRepository implements ChampionsRep
 
     public function getChampionsFist($id)
     {
-        return $this->model->active()->where('id', $id)->with('trait')->first();
+        return $this->model->active()->where('id', $id)->with('trait','item')->first();
     }
 
     public function getChampionsAll()

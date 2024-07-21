@@ -73,9 +73,11 @@ class HomepageController extends Controller
             if($request->has('tierlistId')) {
                 $id = $request->get('tierlistId');
                 $champion = $this->tierlistRepository->getTierListFist($id);
+                $itemChampEnd = $this->itemsChampions($champion->tierlists_end);
+                $itemChampBetween = $this->itemsChampions($champion->tierlists_between);
                 $traits = $this->traitsTierList($champion);
                 if($champion) {
-                    $returnHTML = view('frontend.tft.homepage.partials.detail-tierlist',compact('champion','traits'))->render();
+                    $returnHTML = view('frontend.tft.homepage.partials.detail-tierlist',compact('champion','traits', 'itemChampBetween', 'itemChampEnd'))->render();
                     return response()->json( array('success' => true, 'html'=>$returnHTML) );
                 }else{
                     return response()->json( array('success' => false, 'html'=>'Đội hình đang được cập nhập') );
@@ -84,9 +86,11 @@ class HomepageController extends Controller
             if($request->has('tierlistAId')) {
                 $id = $request->get('tierlistAId');
                 $championA = $this->tierlistRepository->getTierListFist($id);
+                $itemChampBetween = $this->itemsChampions($championA->tierlists_end);
+                $itemChampEnd = $this->itemsChampions($championA->tierlists_between);
                 $traits = $this->traitsTierList($championA);
                 if($championA) {
-                    $returnHTML = view('frontend.tft.homepage.partials.tierlist-a',compact('championA','traits'))->render();
+                    $returnHTML = view('frontend.tft.homepage.partials.tierlist-a',compact('championA','traits', 'itemChampBetween', 'itemChampEnd'))->render();
                     return response()->json( array('success_rankA' => true, 'html'=>$returnHTML) );
                 }else{
                     return response()->json( array('success_rankA' => false, 'html'=>'Đội hình đang được cập nhập') );
@@ -96,10 +100,11 @@ class HomepageController extends Controller
             if($request->has('tierlistBId')) {
                 $id = $request->get('tierlistBId');
                 $championB = $this->tierlistRepository->getTierListFist($id);
-
+                $itemChampBetween = $this->itemsChampions($championB->tierlists_end);
+                $itemChampEnd = $this->itemsChampions($championB->tierlists_between);
                 $traits = $this->traitsTierList($championB);
                 if($championB) {
-                    $returnHTML = view('frontend.tft.homepage.partials.tierlist-b',compact('championB','traits'))->render();
+                    $returnHTML = view('frontend.tft.homepage.partials.tierlist-b',compact('championB','traits', 'itemChampBetween', 'itemChampEnd'))->render();
                     return response()->json( array('success_rankB' => true, 'html'=>$returnHTML) );
                 }else{
                     return response()->json( array('success_rankB' => false, 'html'=>'Đội hình đang được cập nhập') );
@@ -107,6 +112,44 @@ class HomepageController extends Controller
             }
             
         }   
+    }
+
+    public function itemsChampions($championItems){
+        foreach ($championItems as &$championItem) {
+            $objectChampions = $this->championsRepository->getChampionsFist($championItem['id']); // Sử dụng $championItem['id'] thay vì $championss->id
+            $array = [];
+            foreach ($objectChampions->item as $item) {
+                $array[] = $item['id'];
+            }
+            $arrayData = [];
+            foreach ($array as $count) {
+                $item = $this->itemsRepository->getItemsFist($count);
+                $arrayData[] =$item;
+            }
+            $championItem['items'] = $arrayData; // Gán mảng $arrayData vào khóa 'items' của từng phần tử trong $championItems
+        }
+        return $championItems;
+    }
+    public function traitsTierList($champion){
+        $array = [];
+        foreach($champion->tierlists_champion as $champion){
+            $objectChampions = $this->championsRepository->getChampionsFist($champion['id']);
+            foreach($objectChampions->trait as $traits){
+                $array [] = $traits['id'];
+            }
+        }
+        $counts = array_count_values($array);
+        arsort($counts);
+        $results = array_slice($counts, 0, 4, true);
+        $arrayData = [];
+        foreach ($results as $value => $count) {
+            $trait = $this->traitsRepository->getTraitFist($value);
+            $arrayData [] = [
+                'trait' => $trait,
+                'count' => $count,
+            ];
+        }
+        return $arrayData;
     }
 
     //page watch 
@@ -224,30 +267,6 @@ class HomepageController extends Controller
         }   
         return view('frontend.tft.learn.augments',compact('augments'));
     }
-
-    public function traitsTierList($champion){
-        $array = [];
-        foreach($champion->tierlists_champion as $champion){
-            $objectChampions = $this->championsRepository->getChampionsFist($champion['id']);
-            foreach($objectChampions->trait as $traits){
-                $array [] = $traits['id'];
-            }
-        }
-        $counts = array_count_values($array);
-        arsort($counts);
-        $results = array_slice($counts, 0, 4, true);
-        $arrayData = [];
-        foreach ($results as $value => $count) {
-            $trait = $this->traitsRepository->getTraitFist($value);
-            $arrayData [] = [
-                'trait' => $trait,
-                'count' => $count,
-            ];
-        }
-        return $arrayData;
-    }
-
-   
 
     public function augments(Request $request)
     {   

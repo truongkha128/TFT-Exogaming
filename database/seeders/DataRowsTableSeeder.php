@@ -427,8 +427,6 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        
-
         $dataRow = $this->dataRow($watchDataType, 'option');
         if (!$dataRow->exists or true) {
             $dataRow->fill([
@@ -1700,7 +1698,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($titerlistDataType, 'tip');
         if (!$dataRow->exists or true) {
             $dataRow->fill([
-                'type'         => 'text',
+                'type'         => 'text_area',
                 'display_name' => 'Tip chơi',
                 'required'     => 0,
                 'browse'       => 0,
@@ -1719,10 +1717,10 @@ class DataRowsTableSeeder extends Seeder
                 'display_name' => 'Giai đoạn 2',
                 'required'     => 0,
                 'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
+                'read'         => 0,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
                 'order'        => 9,
             ])->save();
         }
@@ -1734,10 +1732,10 @@ class DataRowsTableSeeder extends Seeder
                 'display_name' => 'Giai đoạn 3',
                 'required'     => 0,
                 'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
+                'read'         => 0,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
                 'order'        => 10,
             ])->save();
         }
@@ -1748,10 +1746,10 @@ class DataRowsTableSeeder extends Seeder
                 'display_name' => 'Giai đoạn 4',
                 'required'     => 0,
                 'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
+                'read'         => 0,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
                 'order'        => 11,
             ])->save();
         }
@@ -1903,7 +1901,7 @@ class DataRowsTableSeeder extends Seeder
                 'type'         => 'relationship',
                 'display_name' => 'Bộ khung đầu trận',
                 'required'     => 0,
-                'browse'       => 1,
+                'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
                 'add'          => 1,
@@ -1921,6 +1919,60 @@ class DataRowsTableSeeder extends Seeder
                     'scope' => 'active',
                 ],
                 'order'        => 18,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($titerlistDataType, 'tierlists_belongstomany_between_relationship');
+        if (!$dataRow->exists or true) {
+            $dataRow->fill([
+                'type'         => 'relationship',
+                'display_name' => 'Bộ khung giữa trận',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => [
+                    'model'       => 'App\\Models\\Champions',
+                    'table'       => 'champions',
+                    'type'        => 'belongsToMany',
+                    'column'      => 'id',
+                    'key'         => 'id',
+                    'label'       => 'name',
+                    'pivot_table' => 'tierlists_between',
+                    'pivot'       => '1',
+                    'taggable'    => '0',
+                    'scope' => 'active',
+                ],
+                'order'        => 19,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($titerlistDataType, 'tierlists_belongstomany_end_relationship');
+        if (!$dataRow->exists or true) {
+            $dataRow->fill([
+                'type'         => 'relationship',
+                'display_name' => 'Tướng chủ lực cuối trận',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => [
+                    'model'       => 'App\\Models\\Champions',
+                    'table'       => 'champions',
+                    'type'        => 'belongsToMany',
+                    'column'      => 'id',
+                    'key'         => 'id',
+                    'label'       => 'name',
+                    'pivot_table' => 'tierlists_end',
+                    'pivot'       => '1',
+                    'taggable'    => '0',
+                    'scope' => 'active',
+                ],
+                'order'        => 20,
             ])->save();
         }
 
@@ -1947,7 +1999,7 @@ class DataRowsTableSeeder extends Seeder
                     'taggable'    => '0',
                     'scope' => 'active',
                 ],
-                'order'        => 19,
+                'order'        => 21,
             ])->save();
         }
 
@@ -1974,9 +2026,25 @@ class DataRowsTableSeeder extends Seeder
                     'taggable'    => '0',
                     'scope' => 'active',
                 ],
-                'order'        => 20,
+                'order'        => 22,
             ])->save();
         }
+        
+        $dataRow = $this->dataRow($titerlistDataType, 'link');
+        if (!$dataRow->exists or true) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Link hướng dẫn đội hình',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 23,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($titerlistDataType, 'created_at');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -1988,7 +2056,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 21,
+                'order'        => 24,
             ])->save();
         }
 
@@ -2003,7 +2071,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 22,
+                'order'        => 25,
             ])->save();
         }
 

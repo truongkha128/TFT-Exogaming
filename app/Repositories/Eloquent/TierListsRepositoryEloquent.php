@@ -42,6 +42,6 @@ class TierListsRepositoryEloquent extends BaseRepository implements TierListsRep
 
     public function getTierListFist($id)
     {
-        return $this->model->active()->where('id', $id)->with('tierlists_champion','tierlists_early','tierlists_item','tierlists_augment')->first();
+        return $this->model->active()->where('id', $id)->with('tierlists_champion','tierlists_early','tierlists_between','tierlists_end','tierlists_item','tierlists_augment')->first();
     }
 }

@@ -28,6 +28,7 @@ class Tierlists extends Model
        'thumb',
        'core',
        'image_team',
+       'link',
        'user_id',
    ];
 
@@ -49,6 +50,16 @@ class Tierlists extends Model
    public function tierlists_early()
    {
        return $this->belongsToMany(Champions::class, 'tierlists_early', 'tierlists_id', 'champions_id');
+   }
+
+   public function tierlists_between()
+   {
+       return $this->belongsToMany(Champions::class, 'tierlists_between', 'tierlists_id', 'champions_id');
+   }
+
+   public function tierlists_end()
+   {
+       return $this->belongsToMany(Champions::class, 'tierlists_end', 'tierlists_id', 'champions_id');
    }
 
    public function tierlists_item()

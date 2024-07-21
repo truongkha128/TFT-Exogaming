@@ -40,6 +40,11 @@ class ItemsRepositoryEloquent extends BaseRepository implements ItemsRepository
         return $this->model->where('active', 1)->get();
     }
 
+    public function getItemsFist($id)
+    {
+        return $this->model->active()->where('id', $id)->first();
+    }
+
     public function getTypeItems($type)
     {
         return $this->model->active()->where('type', $type)->get();
