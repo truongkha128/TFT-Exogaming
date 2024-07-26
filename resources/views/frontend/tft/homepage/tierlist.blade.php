@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="flex flex-col h-fit items-center flex-wrap justify-evenly gap-4 mt-8">
 				<div class="flex flex-row items-center h-fit w-fit md:mr-20 max-w-fit">
-					<div class="mr-2 mb-4"><img src="{{ asset('assets/front/images/hinh-mua-11.png')}}" class="w-full h-full"
+				<div class="mr-2 mb-4"><img src="{{ asset('assets/front/images/banner-tierlist.jpg')}}" class="w-full h-full"
 							alt="TFT Academy Logo">
 					</div>
 				</div>
@@ -16,7 +16,7 @@
 				@if(!empty($rankS))
 				<div class="d-md-flex g-2 tabs-tier">
 					<div class="tier tier-s">
-						<h3>S</h3>
+						<h3>LỖI</h3>
 					</div>
 					<div class="w-100 h-100">
 						<ul class="nav nav-pills" id="pills-tab" role="tablist">
@@ -52,7 +52,7 @@
 					
 					<div class="d-md-flex g-2 tabs-tier">
 					<div class="tier tier-a">
-						<h3>A</h3>
+						<h3>CHƠI!</h3>
 					</div>
 					<div class="w-100 h-100">
 						<ul class="nav nav-pills" id="pills-tab" role="tablist">
@@ -87,7 +87,7 @@
 					@if(!empty($rankB))
 					<div class="d-md-flex g-2 tabs-tier">
 						<div class="tier tier-b">
-							<h3>B</h3>
+							<h3>ỔN</h3>
 						</div>
 						<div class="w-100 h-100">
 							<ul class="nav nav-pills" id="pills-tab" role="tablist">

@@ -1,12 +1,12 @@
-<header class="d-md-flex justify-content-between">
-    <img class="logo" style="cursor: pointer;" src="{{ asset('assets/front/images/logo.svg')}}" onclick="window.location.href='/'">
+<header class="d-md-flex">
+    <!-- <img class="logo" style="cursor: pointer;" src="{{ asset('assets/front/images/logo.svg')}}" onclick="window.location.href='/'"> -->
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav g-3">
                     <li class="nav-item">
-                        <a class="nav-link {{$pageGroup == 2 ? 'active' : ''}}" href="{{ route('tierList') }}"><img class="icon-menu" src="{{ asset('assets/front/images/ranking.svg')}}">Tierlist</a>
+                        <a class="nav-link {{$pageGroup == 2 ? 'active' : ''}}" href="{{ route('tierList') }}"><img class="icon-menu" src="{{ asset('assets/front/images/ranking.svg')}}">META</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link {{$pageGroup == 3 ? 'active' : ''}}" href="#">Study Hall</a>

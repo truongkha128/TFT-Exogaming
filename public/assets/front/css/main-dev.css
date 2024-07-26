@@ -3,3 +3,7 @@
     height: 27px;
     object-fit: cover;
 }
+.text-white {
+    font-weight: 600;
+    font-size: 17px;
+}

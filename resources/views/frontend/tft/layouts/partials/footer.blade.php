@@ -1,4 +1,4 @@
-
+<!-- 
 <footer class="flex-none ">
     <div class="">
         <div class="opacity-50 w-full text-center"><a href="#">Privacy Policy</a> <a
@@ -12,4 +12,4 @@
                 registered trademarks of Riot Games, Inc.</p>
         </div>
     </div>
-</footer>
+</footer> -->

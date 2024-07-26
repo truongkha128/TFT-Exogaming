@@ -4,14 +4,14 @@
     font-weight: normal;
     font-style: normal;
   }
-body{
-    background-image: url('../images/bg.webp');
+  body {
+    background-image: url('../images/backgr.jpg');
     background-color: black;
-    background-size:100%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-size: 16px;
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
     position: relative;
 }
 .container{
@@ -62,7 +62,7 @@ a,p,.nav-link{
     align-content: center;
 }
 .tier h3{
-    font-size: 72px;
+    font-size: 31px;
     margin-bottom: 0;
     font-weight: 700;
 }
