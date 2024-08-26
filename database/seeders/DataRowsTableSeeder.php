@@ -1817,10 +1817,10 @@ class DataRowsTableSeeder extends Seeder
                         'rule'          => 'mimes:png,jpg,jpeg,webp',
                     ],
                     "resize" => [
-                        "width" => "400",
-                        "height" => null
+                        "width" => "1080",
+                        "height" => "550"
                     ],
-                    "quality" => "70%",
+                    "quality" => "100%",
                 ],
                 'order'        => 13,
             ])->save();
