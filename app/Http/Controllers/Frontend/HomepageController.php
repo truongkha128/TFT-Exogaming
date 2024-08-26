@@ -86,8 +86,8 @@ class HomepageController extends Controller
             if($request->has('tierlistAId')) {
                 $id = $request->get('tierlistAId');
                 $championA = $this->tierlistRepository->getTierListFist($id);
-                $itemChampBetween = $this->itemsChampions($championA->tierlists_end);
-                $itemChampEnd = $this->itemsChampions($championA->tierlists_between);
+                $itemChampBetween = $this->itemsChampions($championA->tierlists_between);
+                $itemChampEnd = $this->itemsChampions($championA->tierlists_end);
                 $traits = $this->traitsTierList($championA);
                 if($championA) {
                     $returnHTML = view('frontend.tft.homepage.partials.tierlist-a',compact('championA','traits', 'itemChampBetween', 'itemChampEnd'))->render();
@@ -100,8 +100,8 @@ class HomepageController extends Controller
             if($request->has('tierlistBId')) {
                 $id = $request->get('tierlistBId');
                 $championB = $this->tierlistRepository->getTierListFist($id);
-                $itemChampBetween = $this->itemsChampions($championB->tierlists_end);
-                $itemChampEnd = $this->itemsChampions($championB->tierlists_between);
+                $itemChampBetween = $this->itemsChampions($championB->tierlists_between);
+                $itemChampEnd = $this->itemsChampions($championB->tierlists_end);
                 $traits = $this->traitsTierList($championB);
                 if($championB) {
                     $returnHTML = view('frontend.tft.homepage.partials.tierlist-b',compact('championB','traits', 'itemChampBetween', 'itemChampEnd'))->render();

@@ -53,7 +53,7 @@
                            <div class="avt" style="background-image: url({{ Voyager::image($item_champion->thumb) }})">
                            </div>
                        </div>
-                       <!-- <div class="three-star"><img src="{{ asset('assets/front/images/3-start.png')}}" alt=""></div> -->
+                       @if($item_champion['star'] == 3)<div class="three-star"><img src="{{ asset('assets/front/images/3-start.png')}}" alt=""></div>@endif
                        <div class="name-character">{{ $item_champion['name']}}</div> 
                        <!-- <div class="corp item-centesr"
                            style="background-image: url({{ asset('assets/front/images/item-1.webp')}})">

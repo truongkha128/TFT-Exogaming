@@ -22,6 +22,7 @@ class Champions extends Model
        'thumb',
        'thumbnail',
        'type',
+       'star',
        'user_id',
    ];
 

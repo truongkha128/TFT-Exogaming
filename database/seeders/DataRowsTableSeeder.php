@@ -1396,6 +1396,29 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($championDataType, 'star');
+        if (!$dataRow->exists or true) {
+            $dataRow->fill([
+                'type'         => 'select_dropdown',
+                'display_name' => 'Tướng 3 sao',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => [
+                    'default' => '1',
+                    'options' => [
+                        '1' => '1',
+                        '3' => '3',
+                    ],
+                    'preserveFileUploadName' => true
+                ],
+                'order'        => 9,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($championDataType, 'thumb');
         if (!$dataRow->exists or true) {
             $dataRow->fill([
@@ -1417,7 +1440,7 @@ class DataRowsTableSeeder extends Seeder
                     ],
                     "quality" => "70%",
                 ],
-                'order'        => 9,
+                'order'        => 10,
             ])->save();
         }
 
@@ -1442,7 +1465,7 @@ class DataRowsTableSeeder extends Seeder
                     ],
                     "quality" => "50%",
                 ],
-                'order'        => 10,
+                'order'        => 11,
             ])->save();
         }
         $dataRow = $this->dataRow($championDataType, 'champions_belongstomany_item_relationship');
@@ -1468,7 +1491,7 @@ class DataRowsTableSeeder extends Seeder
                     'taggable'    => '0',
                     'scope' => 'active',
                 ],
-                'order'        => 11,
+                'order'        => 12,
             ])->save();
         }
 
@@ -1495,7 +1518,7 @@ class DataRowsTableSeeder extends Seeder
                     'taggable'    => '0',
                     'scope' => 'active',
                 ],
-                'order'        => 12,
+                'order'        => 13,
             ])->save();
         }
 
@@ -1522,7 +1545,7 @@ class DataRowsTableSeeder extends Seeder
                     'taggable'    => '0',
                     'scope' => 'active',
                 ],
-                'order'        => 13,
+                'order'        => 14,
             ])->save();
         }
         $dataRow = $this->dataRow($championDataType, 'created_at');
@@ -1536,7 +1559,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 14,
+                'order'        => 15,
             ])->save();
         }
 
@@ -1551,7 +1574,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 15,
+                'order'        => 16,
             ])->save();
         }
 
