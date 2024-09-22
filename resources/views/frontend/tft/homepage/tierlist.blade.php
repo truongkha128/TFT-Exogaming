@@ -33,7 +33,7 @@
 											</div>
 											<!-- <div class="corp b-1-money"
 												style="background-image: url({{ asset('assets/front/images/icon-bantia.webp')}})"></div> -->
-                                            @if($item['type_rank'])
+                                            @if($item['type_rank'] != 'default')
 											<img class="icon-status" src="{{ config('constants.type_rank')[$item['type_rank']] }}">
                                             @endif
 										</div>
@@ -71,7 +71,7 @@
 											</div>
 											<!-- <div class="corp b-1-money"
 												style="background-image: url('../images/icon-bantia.webp')"></div> -->
-                                             @if($itemA['type_rank'])
+                                             @if($itemA['type_rank'] != 'default')
 											<img class="icon-status" src="{{ config('constants.type_rank')[$itemA['type_rank']] }}">
                                             @endif
 										</div>
@@ -108,7 +108,7 @@
 												</div>
 												{{-- <div class="corp b-1-money"
 													style="background-image: url('../images/icon-bantia.webp')"></div> --}}
-                                                 @if($itemB['type_rank'])
+                                                 @if($itemB['type_rank'] != 'default')
 												<img class="icon-status" src="{{ config('constants.type_rank')[$itemB['type_rank']] }}">
                                                 @endif
 											</div>
