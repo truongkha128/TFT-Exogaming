@@ -19,7 +19,7 @@
                             <h6 class="m-0">A</h6>
                         </div>
                         <div class="text-center">
-                            <p class="text-uppercase m-0 fw-bold">{{ $championA['name'] }}</p>
+                            <p class="text-uppercase m-0 fw-bold">{{ $championA['description'] }}</p>
                             <small class="text-danger text-uppercase fw-bold">{{ $championA['description']}}</small>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                            </div>
                        </div>
                        @if($item_champion['star'] == 3)<div class="three-star"><img src="{{ asset('assets/front/images/3-start.png')}}" alt=""></div>@endif
-                       <div class="name-character">{{ $item_champion['name']}}</div> 
+                       <div class="name-character">{{ $item_champion['description']}}</div> 
                        <!-- <div class="corp item-centesr"
                            style="background-image: url({{ asset('assets/front/images/item-1.webp')}})">
                        </div>
@@ -85,7 +85,7 @@
                                             style="background-image: url({{ Voyager::image($early->thumb) }})">
                                         </div>
                                     </div>
-                                    <div class="name-character">{{ $early['name']}}</div>
+                                    <div class="name-character">{{ $early['description']}}</div>
                                 </div>
                                 @endforeach
                                 <!--  -->
@@ -113,7 +113,7 @@
                                             style="background-image: url({{ Voyager::image($itemBetween->thumb) }})">
                                         </div>
                                     </div>
-                                    <div class="name-character">{{ $itemBetween['name']}}</div>
+                                    <div class="name-character">{{ $itemBetween['description']}}</div>
                                 </div>
                                 @endforeach
                                 <!--  -->
@@ -154,7 +154,7 @@
                                                     style="background-image: url({{ Voyager::image($itemEnd->thumb) }})">
                                                 </div>
                                             </div>
-                                    <div class="name-character">{{ $itemEnd['name']}}</div>
+                                    <div class="name-character">{{ $itemEnd['description']}}</div>
                                 </div>
                                 <img class="img-item-tier" src="{{ asset('assets/front/images/icon-left.svg')}}">
                                 @foreach($itemEnd['items'] as $itemChamp)
@@ -185,7 +185,7 @@
                                                 style="background-image: url({{ Voyager::image($itemOrder->thumb) }})">
                                             </div>
                                         </div>
-                                    <div class="name-character">{{ $itemOrder['name']}}</div>
+                                    <div class="name-character">{{ $itemOrder['description']}}</div>
                                     </div>
                                     <img class="img-item-tier" src="{{ asset('assets/front/images/icon-left.svg')}}">
                                     @foreach($itemOrder['items'] as $itemChamp)
