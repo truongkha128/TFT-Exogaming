@@ -1289,7 +1289,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists or true) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => 'Tên',
+                'display_name' => 'Tên quản trị',
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -1304,7 +1304,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists or true) {
             $dataRow->fill([
                 'type'         => 'text_area',
-                'display_name' => 'Tóm tắt',
+                'display_name' => 'Tên giao diện',
                 'required'     => 0,
                 'browse'       => 1,
                 'read'         => 1,
