@@ -1895,7 +1895,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists or true) {
             $dataRow->fill([
                 'type'         => 'relationship',
-                'display_name' => 'Bộ khung tướng',
+                'display_name' => 'Bộ khung tướng chính của team',
                 'required'     => 0,
                 'browse'       => 1,
                 'read'         => 1,
@@ -1976,7 +1976,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists or true) {
             $dataRow->fill([
                 'type'         => 'relationship',
-                'display_name' => 'Tướng chủ lực cuối trận',
+                'display_name' => 'Tướng chủ lực(đầu,giữa,cuối)',
                 'required'     => 0,
                 'browse'       => 0,
                 'read'         => 1,
@@ -2003,7 +2003,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists or true) {
             $dataRow->fill([
                 'type'         => 'relationship',
-                'display_name' => 'Trang bị cho đội hình',
+                'display_name' => 'Trang bị ưu tiên khi đi chợ',
                 'required'     => 0,
                 'browse'       => 1,
                 'read'         => 1,
